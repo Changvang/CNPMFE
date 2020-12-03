@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "SimpleCRUD"
+  "defaultProject": "SimpleCRUD",
+  "cli": {
+    "analytics": "bb25cd19-927f-4ed8-aa10-dbae17b42540"
+  }
 }
