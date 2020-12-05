@@ -26,7 +26,11 @@ export class AccomodationService {
     return this.http.post(baseUrl, data);
   }
 
-  findByAddress(title: any): Observable<Accomodation[]> {
-    return this.http.get<Accomodation[]>(`${baseUrl}?title=${title}`);
+  findByAddress(address: any): Observable<Accomodation[]> {
+    if(address){
+      return this.http.get<Accomodation[]>(`${baseUrl}/address/${address}`);
+    }else{
+      return this.http.get<Accomodation[]>(baseUrl);
+    }
   }
 }
