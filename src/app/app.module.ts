@@ -9,13 +9,17 @@ import { DemosListComponent } from './components/demos-list/demos-list.component
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddAccomodationComponent } from './components/add-accomodation/add-accomodation.component';
+import { AccomodationListComponent } from './components/accomodation-list/accomodation-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddDemoComponent,
     DemoDetailsComponent,
-    DemosListComponent
+    DemosListComponent,
+    AddAccomodationComponent,
+    AccomodationListComponent
   ],
   imports: [
     BrowserModule,

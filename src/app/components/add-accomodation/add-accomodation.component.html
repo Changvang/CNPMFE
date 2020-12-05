@@ -1,0 +1,59 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+  
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            class="form-control"
+            id="address"
+            required
+            [(ngModel)]="accomodation.address"
+            name="address"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="facility">Facility</label>
+            <input
+              class="form-control"
+              id="facility"
+              required
+              [(ngModel)]="accomodation.facility"
+              name="facility"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="area">Area</label>
+            <input
+              class="form-control"
+              id="area"
+              required
+              [(ngModel)]="accomodation.area"
+              name="area"
+            />
+        </div>
+
+        
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              class="form-control"
+              id="price"
+              required
+              [(ngModel)]="accomodation.price"
+              name="price"
+            />
+        </div>
+  
+        <button (click)="saveAccomodation()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Accomodation was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newAccomodation()">Add</button>
+      </div>
+    </div>
+  </div>
+
