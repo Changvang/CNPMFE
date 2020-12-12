@@ -17,6 +17,7 @@ export class AccomodationListComponent implements OnInit {
   comments?: Comment[];
   address = '';
   numOfAcc = 0;
+  image = 0;
 
   constructor(
     private accomodationService: AccomodationService,
@@ -63,6 +64,7 @@ export class AccomodationListComponent implements OnInit {
     this.currentAccomodation = accomodation;
     this.currentIndex = index;
     this.searchComment();
+    this.getImage();
   }
 
   searchComment(): void {
@@ -71,6 +73,21 @@ export class AccomodationListComponent implements OnInit {
         .subscribe(
           data => {
             this.comments = data;
+            console.log(data);
+          },
+          error => {
+            console.log(error);
+          }
+        )
+    }
+  }
+
+  getImage(): void{
+    if (this.currentAccomodation !== undefined) {
+      this.accomodationService.findImage(this.currentAccomodation.id)
+        .subscribe(
+          data => {
+            this.image = data;
             console.log(data);
           },
           error => {
