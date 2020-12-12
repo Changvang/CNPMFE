@@ -28,9 +28,13 @@ export class AccomodationService {
     return this.http.post(baseUrl, data);
   }
 
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
   findByAddress(address: any): Observable<Accomodation[]> {
     if(address){
-      return this.http.get<Accomodation[]>('${baseUrl}/address/${address}');
+      return this.http.get<Accomodation[]>(`${baseUrl}/searchByAddress/${address}`);
     }else{
       return this.http.get<Accomodation[]>(baseUrl);
     }

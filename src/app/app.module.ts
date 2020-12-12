@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddAccomodationComponent } from './components/add-accomodation/add-accomodation.component';
 import { AccomodationListComponent } from './components/accomodation-list/accomodation-list.component';
+import { AccomodationDetailsComponent } from './components/accomodation-details/accomodation-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AccomodationListComponent } from './components/accomodation-list/accomo
     DemoDetailsComponent,
     DemosListComponent,
     AddAccomodationComponent,
-    AccomodationListComponent
+    AccomodationListComponent,
+    AccomodationDetailsComponent
   ],
   imports: [
     BrowserModule,

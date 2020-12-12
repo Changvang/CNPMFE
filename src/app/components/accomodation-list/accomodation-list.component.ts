@@ -18,6 +18,7 @@ export class AccomodationListComponent implements OnInit {
   address = '';
   numOfAcc = 0;
   image = 0;
+  Rating = 0;
 
   constructor(
     private accomodationService: AccomodationService,
@@ -73,7 +74,9 @@ export class AccomodationListComponent implements OnInit {
         .subscribe(
           data => {
             this.comments = data;
+            const rating = data.reduce((rating,current) => rating + current.rating,0)/data.length;
             console.log(data);
+            this.Rating = rating;
           },
           error => {
             console.log(error);

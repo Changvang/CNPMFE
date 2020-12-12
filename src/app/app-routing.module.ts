@@ -5,6 +5,7 @@ import { DemoDetailsComponent } from './components/demo-details/demo-details.com
 import { AddDemoComponent } from './components/add-demo/add-demo.component';
 import { AccomodationListComponent } from './components/accomodation-list/accomodation-list.component';
 import { AddAccomodationComponent } from './components/add-accomodation/add-accomodation.component';
+import { AccomodationDetailsComponent } from './components/accomodation-details/accomodation-details.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'accomodation', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'add', component: AddDemoComponent },
   { path: 'accomodation' , component: AccomodationListComponent },
   { path: 'add-accomodation' , component: AddAccomodationComponent },
+  { path: 'accomodation/:id' , component: AccomodationDetailsComponent },
 ];
 
 @NgModule({
