@@ -5,4 +5,5 @@ export class Accomodation {
     area?: number;
     price?: number;
     userID?: number;
+    image?: any;
 }

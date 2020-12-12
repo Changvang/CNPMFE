@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Comment } from '../models/comment.model';
 
-const baseUrl = 'http://localhost:8080/api/comments';
+const baseUrl = 'http://192.168.137.1:8080/api/comments';
 
 @Injectable({
   providedIn: 'root'
