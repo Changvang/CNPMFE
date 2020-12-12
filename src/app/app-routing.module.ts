@@ -7,7 +7,7 @@ import { AccomodationListComponent } from './components/accomodation-list/accomo
 import { AddAccomodationComponent } from './components/add-accomodation/add-accomodation.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'demos', pathMatch: 'full' },
+  { path: '', redirectTo: 'accomodation', pathMatch: 'full' },
   { path: 'demos', component: DemosListComponent },
   { path: 'demos/:id', component: DemoDetailsComponent },
   { path: 'add', component: AddDemoComponent },

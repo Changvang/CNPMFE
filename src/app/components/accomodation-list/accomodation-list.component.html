@@ -1,71 +1,76 @@
 <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by address"
-          [(ngModel)]="address"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            (click)="searchAddress()"
-          >
-            Search
-          </button>
-        </div>
+  <div class="col-md-10">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search by address" [(ngModel)]="address" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="searchAddress()">
+          Search
+        </button>
       </div>
     </div>
-    <div class="col-md-6">
-      <h4>Accomodation List</h4>
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let accomodation of accomodations; let i = index"
-          [class.active]="i == currentIndex"
-          (click)="setActiveAccomodation(accomodation, i)"
-        >
-          Id: {{ accomodation.id }} - Address: {{ accomodation.address}}
+  </div>
+  <div class="col-md-4">
+    <h4>Accomodation List</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let accomodation of accomodations; let i = index"
+        [class.active]="i == currentIndex" (click)="setActiveAccomodation(accomodation, i)">
+        Id: {{ accomodation.id }} - Address: {{ accomodation.address}}
+      </li>
+    </ul>
+
+  </div>
+  <div class="col-md-4">
+    <div *ngIf="currentAccomodation">
+      <h4>Accomodation</h4>
+      <div>
+        <label><strong>Id:</strong></label> {{ currentAccomodation.id }}
+      </div>
+      <div>
+        <label><strong>Price:</strong></label>
+        {{ currentAccomodation.price }}
+      </div>
+      <div>
+        <label><strong>Address:</strong></label>
+        {{ currentAccomodation.address }}
+      </div>
+      <div>
+        <label><strong>Facility:</strong></label>
+        {{ currentAccomodation.facility }}
+      </div>
+      <div>
+        <label><strong>Area:</strong></label>
+        {{ currentAccomodation.area }}
+      </div>
+      <div>
+        <label><strong>UserId:</strong></label>
+        {{ currentAccomodation.userID }}
+      </div>
+      <a class="badge badge-warning" routerLink="/accommodations/{{ currentAccomodation.id }}">
+        Edit
+      </a>
+    </div>
+
+    <!-- <div *ngIf="!currentAccomodation">
+      <br />
+      <p>Please click on a Accomodation...</p>
+    </div> -->
+  </div>
+
+  <div class="col-md-4">
+    <div *ngIf="currentAccomodation">
+      <h4>Comments</h4>
+      <ul class="comments">
+        <li *ngFor="let cmt of comments">
+          <span class="badge">{{cmt.id}}</span> {{cmt.content}}
         </li>
       </ul>
-  
     </div>
-    <div class="col-md-6">
-      <div *ngIf="currentAccomodation">
-        <h4>Accomodation</h4>
-        <div>
-          <label><strong>Id:</strong></label> {{ currentAccomodation.id }}
-        </div>
-        <div>
-          <label><strong>Price:</strong></label>
-          {{ currentAccomodation.price }}
-        </div>
-        <div>
-          <label><strong>Address:</strong></label>
-          {{ currentAccomodation.address }}
-        </div>
-        <div>
-          <label><strong>Facility:</strong></label>
-          {{ currentAccomodation.facility }}
-        </div>
-        <div>
-          <label><strong>Area:</strong></label>
-          {{ currentAccomodation.area }}
-        </div>
-        <div>
-          <label><strong>UserId:</strong></label>
-          {{ currentAccomodation.userID }}
-        </div>
-        <a class="badge badge-warning" routerLink="/accommodations/{{ currentAccomodation.id }}">
-          Edit
-        </a>
-      </div>
-  
-      <div *ngIf="!currentAccomodation">
+    <div *ngIf="!currentAccomodation">
+      <div *ngIf="numOfAcc > 0">
         <br />
         <p>Please click on a Accomodation...</p>
       </div>
     </div>
   </div>
+
+</div>

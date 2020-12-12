@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Accomodation } from 'src/app/models/accomodation.model';
 import { AccomodationService } from 'src/app/service/accomodation.service';
+import { Comment } from 'src/app/models/comment.model';
+import { CommentService } from 'src/app/service/comment.service';
 
 @Component({
   selector: 'app-accomodation-list',
@@ -12,9 +14,14 @@ export class AccomodationListComponent implements OnInit {
   accomodations?: Accomodation[];
   currentAccomodation?: Accomodation;
   currentIndex = -1;
+  comments?: Comment[];
   address = '';
+  numOfAcc = 0;
 
-  constructor(private accomodationService: AccomodationService) { }
+  constructor(
+    private accomodationService: AccomodationService,
+    private commentService: CommentService
+  ) { }
 
   ngOnInit(): void {
     this.retrieveAccomodations();
@@ -25,6 +32,7 @@ export class AccomodationListComponent implements OnInit {
       .subscribe(
         data => {
           this.accomodations = data;
+          this.numOfAcc = Object.keys(this.accomodations).length
           console.log(data);
         },
         error => {
@@ -43,6 +51,7 @@ export class AccomodationListComponent implements OnInit {
       .subscribe(
         data => {
           this.accomodations = data;
+          this.numOfAcc = Object.keys(this.accomodations).length
           console.log(data);
         },
         error => {
@@ -53,5 +62,21 @@ export class AccomodationListComponent implements OnInit {
   setActiveAccomodation(accomodation: Accomodation, index: number): void {
     this.currentAccomodation = accomodation;
     this.currentIndex = index;
+    this.searchComment();
+  }
+
+  searchComment(): void {
+    if (this.currentAccomodation !== undefined) {
+      this.commentService.findByAcccode(this.currentAccomodation.id)
+        .subscribe(
+          data => {
+            this.comments = data;
+            console.log(data);
+          },
+          error => {
+            console.log(error);
+          }
+        )
+    }
   }
 }
